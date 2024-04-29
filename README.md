@@ -5,10 +5,10 @@ A curated list of awesome Python frameworks, libraries, software, resources, cod
 - [Games](#games)
 - [Pygame](#pygame)
 
-## Games [⤴](README.md)
+## Games [⤴](/)
 - [Game of Life](estvrtecky/GameOfLife)
 - [Pong](estvrtecky/pong)
 - [Sokoban](estvrtecky/sokoban)
 
-## Pygame [⤴](README.md)
+## Pygame [⤴](/)
 - [Code Snippets](pygame/README.md/#code-snippets)
