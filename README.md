@@ -6,9 +6,9 @@ A curated list of awesome Python frameworks, libraries, software, resources, cod
 - [Pygame](#pygame)
 
 ## Games [⤴](/)
-- [Game of Life](estvrtecky/GameOfLife)
-- [Pong](estvrtecky/pong)
-- [Sokoban](estvrtecky/sokoban)
+- [Game of Life](https://github.com/estvrtecky/GameOfLife)
+- [Pong](https://github.com/estvrtecky/pong)
+- [Sokoban](https://github.com/estvrtecky/sokoban)
 
 ## Pygame [⤴](/)
 - [Code Snippets](pygame/README.md/#code-snippets)
