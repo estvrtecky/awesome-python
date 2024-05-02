@@ -13,6 +13,7 @@ class Button:
         width (int) -- the width of the button (default 100)
         height (int) -- the height of the button (default 50)
         text (str) -- the text displayed on the button (default "")
+        text_color (tuple[int, int, int]) -- the color of the text (default (0, 0, 0))
         font (pygame.font.Font) -- the font of the text (default None)
         image (pygame.Surface) -- the image of the button (default None)
         """
@@ -21,6 +22,7 @@ class Button:
         self.width = kwargs.get("width", 100)
         self.height = kwargs.get("height", 50)
         self.text = kwargs.get("text", "")
+        self.text_color = kwargs.get("text_color", (0, 0, 0))
         self.font = kwargs.get("font", pygame.font.Font(None, 30))
         self.image = self.create_image(kwargs.get("image", None))
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
@@ -69,7 +71,7 @@ class Button:
 
     def draw_text(self, surface: pygame.Surface) -> None:
         """Draw the text on the button."""
-        text_surface = self.font.render(self.text, True, (0, 0, 0))
+        text_surface = self.font.render(self.text, True, self.text_color)
         text_rect = text_surface.get_rect()
         text_rect.center = (self.width // 2, self.height // 2)
         surface.blit(text_surface, text_rect)
