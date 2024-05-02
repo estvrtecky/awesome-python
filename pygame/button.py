@@ -2,6 +2,9 @@ import pygame
 from typing import Any
 
 
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+
 class Button:
     def __init__(self, **kwargs: Any) -> None:
         """
@@ -15,6 +18,7 @@ class Button:
         text (str) -- the text displayed on the button (default "")
         text_color (tuple[int, int, int]) -- the color of the text (default (0, 0, 0))
         font (pygame.font.Font) -- the font of the text (default None)
+        background_color (tuple[int, int, int]) -- the color of the button (default (255, 255, 255))
         image (pygame.Surface) -- the image of the button (default None)
         """
         self._x = kwargs.get("x", 0)
@@ -22,8 +26,9 @@ class Button:
         self.width = kwargs.get("width", 100)
         self.height = kwargs.get("height", 50)
         self._text = kwargs.get("text", "")
-        self.text_color = kwargs.get("text_color", (0, 0, 0))
+        self.text_color = kwargs.get("text_color", BLACK)
         self.font = kwargs.get("font", pygame.font.Font(None, 30))
+        self.background_color = kwargs.get("background_color", WHITE)
         self.original_image = kwargs.get("image", None)
         self.image = self.create_image(self.original_image)
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
@@ -72,7 +77,7 @@ class Button:
             image = pygame.transform.scale(image.copy(), (self.width, self.height))
         else:
             image = pygame.Surface((self.width, self.height))
-            image.fill((255, 255, 255))
+            image.fill(self.background_color)
         self.draw_text(image)
         return image
 
