@@ -21,10 +21,11 @@ class Button:
         self._y = kwargs.get("y", 0)
         self.width = kwargs.get("width", 100)
         self.height = kwargs.get("height", 50)
-        self.text = kwargs.get("text", "")
+        self._text = kwargs.get("text", "")
         self.text_color = kwargs.get("text_color", (0, 0, 0))
         self.font = kwargs.get("font", pygame.font.Font(None, 30))
-        self.image = self.create_image(kwargs.get("image", None))
+        self.original_image = kwargs.get("image", None)
+        self.image = self.create_image(self.original_image)
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
 
     @property
@@ -55,10 +56,20 @@ class Button:
         self.x = self.rect.x
         self.y = self.rect.y
 
+    @property
+    def text(self) -> str:
+        return self._text
+
+    @text.setter
+    def text(self, value: str) -> None:
+        self._text = value
+        self.image = self.create_image(self.original_image)
+        self.rect = self.image.get_rect(topleft=(self.x, self.y))
+
     def create_image(self, image: pygame.Surface):
         """Create the button's image."""
         if image:
-            image = pygame.transform.scale(image, (self.width, self.height))
+            image = pygame.transform.scale(image.copy(), (self.width, self.height))
         else:
             image = pygame.Surface((self.width, self.height))
             image.fill((255, 255, 255))
