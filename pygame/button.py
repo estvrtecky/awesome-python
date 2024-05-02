@@ -47,11 +47,11 @@ class Button:
         self.rect.y = self.y
 
     @property
-    def center(self) -> tuple:
+    def center(self) -> tuple[int, int]:
         return self.rect.center
 
     @center.setter
-    def center(self, value: tuple) -> None:
+    def center(self, value: tuple[int, int]) -> None:
         self.rect.center = value
         self.x = self.rect.x
         self.y = self.rect.y
