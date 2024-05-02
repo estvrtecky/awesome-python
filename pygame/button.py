@@ -1,19 +1,28 @@
 import pygame
+from typing import Any
 
 
 class Button:
-    def __init__(self, x: int, y: int, width: int, height: int, image: pygame.Surface = None, text: str = "", font: pygame.font.Font = None) -> None:
-        # Position and size
-        self._x = x
-        self._y = y
-        self.width = width
-        self.height = height
+    def __init__(self, **kwargs: Any) -> None:
+        """
+        Create a button object.
 
-        # Text and font
-        self.text = text
-        self.font = font or pygame.font.Font(None, 30)
-
-        self.image = self.create_image(image)
+        Keyword arguments:
+        x (int) -- the x-coordinate of the button (default 0)
+        y (int) -- the y-coordinate of the button (default 0)
+        width (int) -- the width of the button (default 100)
+        height (int) -- the height of the button (default 50)
+        text (str) -- the text displayed on the button (default "")
+        font (pygame.font.Font) -- the font of the text (default None)
+        image (pygame.Surface) -- the image of the button (default None)
+        """
+        self._x = kwargs.get("x", 0)
+        self._y = kwargs.get("y", 0)
+        self.width = kwargs.get("width", 100)
+        self.height = kwargs.get("height", 50)
+        self.text = kwargs.get("text", "")
+        self.font = kwargs.get("font", pygame.font.Font(None, 30))
+        self.image = self.create_image(kwargs.get("image", None))
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
 
     @property
