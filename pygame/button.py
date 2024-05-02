@@ -10,16 +10,16 @@ class Button:
         """
         Create a button object.
 
-        Keyword arguments:
-        x (int) -- the x-coordinate of the button (default 0)
-        y (int) -- the y-coordinate of the button (default 0)
-        width (int) -- the width of the button (default 100)
-        height (int) -- the height of the button (default 50)
-        text (str) -- the text displayed on the button (default "")
-        text_color (tuple[int, int, int]) -- the color of the text (default (0, 0, 0))
-        font (pygame.font.Font) -- the font of the text (default None)
-        background_color (tuple[int, int, int]) -- the color of the button (default (255, 255, 255))
-        image (pygame.Surface) -- the image of the button (default None)
+        Keyword arguments:\\
+        x (int) -- the x-coordinate of the button (default 0)\\
+        y (int) -- the y-coordinate of the button (default 0)\\
+        width (int) -- the width of the button (default 100)\\
+        height (int) -- the height of the button (default 50)\\
+        text (str) -- the text displayed on the button (default "")\\
+        text_color (tuple[int, int, int]) -- the color of the text (default (0, 0, 0))\\
+        font (pygame.font.Font) -- the font of the text (default None)\\
+        background_color (tuple[int, int, int]) -- the color of the button (default (255, 255, 255))\\
+        image (pygame.Surface) -- the image of the button (default None)\\
         """
         self._x = kwargs.get("x", 0)
         self._y = kwargs.get("y", 0)
